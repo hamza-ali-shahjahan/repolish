@@ -1,5 +1,7 @@
 #!/usr/bin/env bun
+import { basename, resolve } from "node:path";
 import { run } from "../src/index.ts";
+import { renderBanner } from "../src/banner.ts";
 
 const HELP = `repolish — make any repo's first impression look premium AND honest.
 
@@ -9,6 +11,7 @@ USAGE
 OPTIONS
   --write          Write .repolish/README.draft.md + honesty-report.md into the repo
   --out <dir>      With --write, write to <dir> instead of <repo>/.repolish
+  --banner [text]  Print just the block-letter wordmark (default: the repo's name)
   --json           Emit structured JSON (facts + readme + findings)
   --strict         Exit non-zero if any HIGH-severity overclaim is found
   -h, --help       Show this help
@@ -17,6 +20,7 @@ OPTIONS
 EXAMPLES
   repolish .                 # audit + draft for the current repo, printed
   repolish ../my-lib --write # save a README draft + honesty report
+  repolish --banner repolish # just the wordmark
   repolish . --json | jq .findings
 `;
 
@@ -28,6 +32,12 @@ function main(argv: string[]): number {
   const positional = args.filter((a) => !a.startsWith("-"));
   const outIdx = args.indexOf("--out");
   const path = positional[0] ?? ".";
+
+  if (args.includes("--banner")) {
+    const text = positional[0] ?? basename(resolve("."));
+    process.stdout.write(renderBanner(text) + "\n");
+    return 0;
+  }
 
   try {
     return run({

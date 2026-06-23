@@ -1,6 +1,14 @@
 import type { RepoFacts } from "./types.ts";
+import { renderBanner } from "./banner.ts";
 
 const TODO = "<!-- TODO -->";
+
+/** The repo name as a block-letter wordmark for the hero. Long names (>14 chars)
+ *  fall back to a plain H1 so the banner never overflows the README width. */
+function heroTitle(f: RepoFacts): string {
+  if (f.name.length <= 14) return `<pre>\n${renderBanner(f.name)}\n</pre>`;
+  return `# ${f.name}`;
+}
 
 /** Only badges we can actually back up get rendered. Unverifiable badges
  *  (coverage %, downloads, version) are listed as commented-out suggestions
@@ -93,7 +101,7 @@ export function generateReadme(f: RepoFacts): string {
   const hero = [
     `<div align="center">`,
     ``,
-    `# ${f.name}`,
+    heroTitle(f),
     ``,
     tagline(f),
     ``,

@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { analyze, scanRepo, generateReadme, honestyPass } from "../src/index.ts";
+import { renderBanner } from "../src/banner.ts";
 import type { RepoFacts } from "../src/types.ts";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
@@ -26,7 +27,8 @@ for (const rel of repoDirs) {
   const md = generateReadme(facts);
   const bashBlock = md.match(/```bash\n([\s\S]*?)```/)?.[1] ?? "";
   const checks: Record<string, boolean> = {
-    hero: md.includes(`<div align="center">`) && md.includes(`# ${facts.name}`), // name == real name (guard)
+    // hero must center AND show the real name as its block-letter wordmark (guard)
+    hero: md.includes(`<div align="center">`) && md.includes(renderBanner(facts.name).split("\n")[0]!),
     tagline: /\n\*\*[^\n]+\*\*\n/.test(md),
     badges: md.includes("img.shields.io"),
     comparison: md.includes("## How it compares") && md.includes("|---"),
