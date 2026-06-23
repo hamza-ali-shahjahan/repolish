@@ -1,0 +1,16 @@
+{
+  "name": "repolish",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Make any repo's first impression look premium and honest — in one command.",
+  "type": "module",
+  "bin": { "repolish": "bin/repolish.ts" },
+  "scripts": {
+    "start": "bun run bin/repolish.ts",
+    "eval": "bun run eval/run-evals.ts",
+    "test": "bun test"
+  },
+  "keywords": ["readme", "cli", "documentation", "honesty", "developer-tools"],
+  "license": "MIT",
+  "engines": { "bun": ">=1.0" }
+}

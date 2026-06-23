@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# repolish's own output (never overwrite a real README)
+.repolish/
+*.draft.md
+
+# Hamzaish auto-commit markers — keep this repo LOCAL until the name is locked.
+# (.no-auto-push is present on disk so the Stop hook never pushes; gitignored per convention.)
+.no-auto-push
+.auto-push
+.hamzaish-managed

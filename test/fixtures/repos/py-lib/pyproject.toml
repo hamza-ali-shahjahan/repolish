@@ -1,0 +1,10 @@
+[project]
+name = "tablo"
+version = "0.3.1"
+description = "Render pandas DataFrames as crisp terminal tables."
+dependencies = ["rich", "pandas"]
+license = { text = "Apache-2.0" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

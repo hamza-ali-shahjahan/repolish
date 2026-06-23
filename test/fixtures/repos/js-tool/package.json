@@ -1,0 +1,16 @@
+{
+  "name": "snipd",
+  "version": "1.2.0",
+  "description": "A tiny CLI that turns shell snippets into shareable cards.",
+  "type": "module",
+  "bin": { "snipd": "bin/snipd.js" },
+  "scripts": {
+    "start": "node bin/snipd.js",
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "kleur": "^4.1.5"
+  },
+  "license": "MIT"
+}
