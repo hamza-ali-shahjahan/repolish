@@ -10,6 +10,8 @@
 
 *repo polish in one command.*
 
+<img src="demo/repolish.gif" alt="repolish drafting a premium README and flagging a repo's overclaims" width="860">
+
 </div>
 
 ## What is repolish?
@@ -52,8 +54,11 @@ bun run /path/to/repolish/bin/repolish.ts . --write
 
 ## Status
 
-Early. v0 generates the README draft and runs the honesty pass; the real demo-GIF
-recording is the next milestone, not done yet. Covered by an eval suite (`bun run eval`).
+Early. v0 generates the README draft and runs the honesty pass; covered by an eval
+suite (`bun run eval`). The demo above is a *real* recording (made with
+[vhs](https://github.com/charmbracelet/vhs) — see [`demo/repolish.tape`](demo/repolish.tape)),
+not a mockup. Teaching repolish to record that GIF for *your* repo automatically is
+the next milestone — not done yet.
 
 ## License
 

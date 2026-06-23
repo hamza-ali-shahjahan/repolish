@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Tiny wrapper so the demo can type `repolish <path>` instead of the full bun invocation.
+# It IS repolish — just `bun run bin/repolish.ts` under the hood.
+exec bun run "$(cd "$(dirname "$0")/.." && pwd)/bin/repolish.ts" "$@"

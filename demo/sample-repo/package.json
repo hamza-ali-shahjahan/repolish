@@ -1,0 +1,11 @@
+{
+  "name": "rocketstore",
+  "version": "0.1.0",
+  "description": "A small key-value store for Node.",
+  "type": "module",
+  "bin": { "rocketstore": "bin/rocketstore.js" },
+  "dependencies": {
+    "lmdb": "^3.0.0"
+  },
+  "license": "MIT"
+}
