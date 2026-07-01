@@ -66,6 +66,8 @@ suite (`bun run eval`). The demo above is a *real* recording (made with
 not a mockup. Teaching repolish to record that GIF for *your* repo automatically is
 the next milestone — not done yet.
 
+The principles and roadmap behind the polish live in [`LEARNINGS.md`](LEARNINGS.md).
+
 ## License
 
 MIT
